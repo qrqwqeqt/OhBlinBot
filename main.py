@@ -1,6 +1,8 @@
 import re
 import random
 
+
+today_msg = []
 def read_file_to_list(filename):
     lines = []
     try:
@@ -23,13 +25,9 @@ def choiseOfName():
 
 def templateOrigin ():
     line = choiseOfLine()
-    words = re.split(r'(#\S+#)', line)
     name = choiseOfName()
-    for number in range(len(words)):
-        if len(words[number]) > 1:
-            if words[number][0] == '#' and words[number][-1] == '#' and len(words[number]) > 2:
-                words[number] = name
-    print (words, name)
+    today_msg = (line, name)
+    print (today_msg)
 
 if __name__ == "__main__":
     filename = "input.txt"
